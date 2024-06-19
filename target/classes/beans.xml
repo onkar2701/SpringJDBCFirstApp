@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+						http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+	<!-- <context:property-placeholder location="classpath:app.properties"/>  -->
+	<!-- bean definitions here -->
+
+
+	<!--
+	<bean id="cart" class="in.onkar.Cart">
+		<property name="cid" value="101" />
+		<property name="cname" value="ball" />
+	</bean>
+	
+	
+	<util:list id = "probj" list-class="java.util.LinkedList">
+		<value>M</value>
+		<value>N</value>
+		<value>O</value>
+	</util:list>
+	
+	<util:set id="procodes" set-class="java.util.TreeSet">
+		<value>101</value>
+		<value>202</value>
+		<value>101</value>
+	</util:set>
+
+	<util:map id="vobj" map-class="java.util.TreeMap">
+		<entry key="A" value="1"></entry>
+		<entry key="B" value="4"></entry>
+		<entry key="A" value="6"></entry>
+	</util:map>
+	
+	<bean id="product" class="in.onkar.Product">
+		<property name="pid" value="${my.prodid}" />
+		<property name="pname" value="${my.prodname}" />
+		<property name="prods" ref="probj"></property>
+		<property name="codes" ref="procodes"></property>
+		<property name="versions" ref="vobj"></property>
+	</bean>
+	
+	-->
+
+
+	<context:property-placeholder location="classpath:app.properties" />
+
+	<bean id="dsobj"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName">
+			<value>${my.driver}</value>
+		</property>
+		<property name="url">
+			<value>${my.url}</value>
+		</property>
+		<property name="username">
+			<value>${my.username}</value>
+		</property>
+		<property name="password">
+			<value>${my.password}</value>
+		</property>
+
+	</bean>
+
+	<bean id="jdObj" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dsobj"></property>
+	</bean>
+</beans>
